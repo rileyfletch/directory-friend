@@ -1,6 +1,12 @@
 # Prerequisites
 *.d
 
+# VSCode Config
+.vscode/*
+
+# Executable
+dirf
+
 # Compiled Object files
 *.slo
 *.lo
