@@ -1,9 +1,9 @@
 CXX = clang++
 CXXFLAGS = -std=c++20 -Wall -O2
 
-SRCS = src/main.cc src/parser.cc src/utils.cc
+SRCS = src/main.cpp src/parser.cpp src/utils.cpp src/manage.cpp
 
-HDRS = src/utils.hh src/parser.hh
+HDRS = src/utils.hh src/parser.hh src/manage.hh
 
 OBJS = $(SRCS:.cc=.o)
 
