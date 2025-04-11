@@ -1,3 +1,3 @@
 #pragma once
 
-void init_root_dir();
+void init_root_dirs();

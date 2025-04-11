@@ -2,8 +2,11 @@
 #include <chrono>
 #include <ctime>
 #include <filesystem>
+#include <fstream>
 
 #include "utils.hh"
+
+namespace fs = std::filesystem;
 
 /*
     Base user class; saved and loaded from disk if already existent
@@ -35,7 +38,7 @@ User::~User() {
 /*
     File system structure
     ---------------------
-    .dirf/
+    .dirf/      <-- $HOME
         public/
         users/
             userX/
@@ -43,10 +46,18 @@ User::~User() {
                 user_notes/
 */
 
-namespace fs = std::filesystem;
-
-void init_root_dir() {
-    fs::path p = fs::current_path();
+void init_root_dirs() {
     std::string root = get_root_path();
-    println(root);
+    root.append("/.dirf");
+
+    if(fs::exists(root)) {
+        println("exists");
+    } else {
+        std::string users = root + "/users";
+        std::string pub = root + "/public";
+
+        fs::create_directory(root);
+        fs::create_directory(users);
+        fs::create_directory(pub);
+    }
 }
