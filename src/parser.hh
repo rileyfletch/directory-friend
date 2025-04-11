@@ -2,4 +2,4 @@
 
 #include <iostream>
 
-void invoke_command(std::string cmd);
+void arg_parser(char *args[]);

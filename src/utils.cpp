@@ -1,9 +1,11 @@
 #include <iostream>
+#include <chrono>
+#include <ctime>
 
 #include "utils.hh"
 
 /* 
-General helper functions for ease.
+    General helper functions
 */
 
 void println(const std::string str) {
@@ -25,10 +27,24 @@ int strlen(char *buf) {
 }
 
 /*
-System helper functions.
+    System helper functions
 */
 
 void print_user_path() {
     if (const char* env_p = std::getenv("PATH"))
         std::cout << "Your PATH is: " << env_p << '\n';
+}
+
+std::string get_root_path() {
+    if (const char* rp = std::getenv("HOME")) 
+        return std::string (rp);
+    return nullptr;
+}
+
+void display_time_t(std::time_t t) {
+    std::tm* now = std::localtime(&t);
+    std::cout << (now->tm_year + 1900) << '-' 
+         << (now->tm_mon + 1) << '-'
+         <<  now->tm_mday
+         << "\n";
 }

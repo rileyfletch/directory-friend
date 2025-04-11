@@ -8,3 +8,6 @@ A small terminal utility for quick access to password protected notes
 
 ## Overview
 tbd
+
+## encryption lib
+https://github.com/trusch/libbcrypt

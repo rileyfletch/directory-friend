@@ -3,16 +3,23 @@
 #include <vector>
 #include <bits/stdc++.h>
 
-void invoke_command(std::string cmd) {
-    std::vector<std::string> cmd_args;
-    std::stringstream ss(cmd);  
-    std::string word;
+#include "utils.hh"
+#include "manage.hh"
 
-    while (ss >> word) { 
-        cmd_args.push_back(word);
+/* 
+    Parses CLI arguments and commits various actions
+*/
+void arg_parser(char *args[]) {
+    char *cmd = strdup(args[1]);
+
+    if(strcmp(cmd, "test") == 0) {
+        println("valid");
+    } else if(strcmp(cmd, "sec") == 0) {
+        println("second");
+    } else {
+        println("Invalid input");
+        println(cmd);
     }
 
-    for(std::string str : cmd_args) {
-        std::cout << str << std::endl;
-    }
+    free(cmd);
 }
